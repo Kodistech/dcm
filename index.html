@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Blind Coffee</title>
+<link rel="stylesheet" href="index.css">
+</head>
+<body>
+<header class="top">
+<strong>Blind Coffee</strong>
+<span id="who"></span>
+<button type="button" id="logout">Đăng xuất</button>
+</header>
+<nav aria-label="Mục chính">
+<button type="button" data-act="nav" data-v="overview">Tổng quan</button>
+<button type="button" data-act="nav" data-v="orders">Đơn hàng</button>
+<button type="button" data-act="nav" data-v="products">Sản phẩm</button>
+<button type="button" data-act="nav" data-v="customers">Khách hàng</button>
+</nav>
+<main>
+
+<section id="overview">
+<div class="row"><h2 class="grow">Tổng quan</h2>
+<label class="inline"><input type="checkbox" id="live" checked> Trực tuyến</label></div>
+<dl class="stats">
+<div><dt>Doanh thu hôm nay</dt><dd id="rev"></dd></div>
+<div><dt>Số đơn</dt><dd id="count"></dd></div>
+<div><dt>Đơn đang mở</dt><dd id="open"></dd></div>
+</dl>
+<h3>Đơn mới nhất</h3>
+<ul id="latest"></ul>
+</section>
+
+<section id="orders" hidden>
+<h2>Đơn hàng</h2>
+<details>
+<summary>Tạo đơn mới</summary>
+<form id="order-form">
+<fieldset><legend>Chọn món và số lượng</legend><div id="pick" class="pick"></div></fieldset>
+<div class="fields">
+<div><label for="cust">Khách</label><select id="cust"></select></div>
+<div><label for="mode">Thanh toán</label><select id="mode"><option value="now">Thu ngay</option><option value="later">Pha trước</option></select></div>
+<div><label for="method">Hình thức thu</label><select id="method"><option value="cash">Tiền mặt</option><option value="card">Thẻ</option><option value="transfer">Chuyển khoản</option></select></div>
+</div>
+<label for="note">Ghi chú</label>
+<input id="note" maxlength="120">
+<p class="muted">Cổng thanh toán có thể gắn thêm sau.</p>
+<p id="order-error" class="error" role="alert"></p>
+<button type="submit">Lưu đơn</button>
+</form>
+</details>
+<div class="fields">
+<div><label for="filter">Lọc</label>
+<select id="filter"><option value="open">Đang mở</option><option value="all">Tất cả</option><option value="pending">Mới</option><option value="preparing">Đang pha</option><option value="ready">Sẵn sàng</option><option value="paid">Đã thu</option></select></div>
+<div><label for="q">Tìm theo mã hoặc tên khách</label><input id="q" type="search"></div>
+</div>
+<ul id="order-list"></ul>
+</section>
+
+<section id="products" hidden>
+<h2>Sản phẩm</h2>
+<details>
+<summary>Thêm sản phẩm</summary>
+<form id="product-form">
+<div class="fields">
+<div><label for="pname">Tên</label><input id="pname" maxlength="60"></div>
+<div><label for="pcat">Nhóm</label><select id="pcat"><option>Cà phê</option><option>Trà</option><option>Bánh</option></select></div>
+<div><label for="pprice">Giá (₫)</label><input id="pprice" type="number" min="1000" step="1000"></div>
+</div>
+<p id="product-error" class="error" role="alert"></p>
+<button type="submit">Thêm sản phẩm</button>
+</form>
+</details>
+<ul id="product-list"></ul>
+</section>
+
+<section id="customers" hidden>
+<h2>Khách hàng</h2>
+<details>
+<summary>Thêm khách hàng</summary>
+<form id="customer-form">
+<div class="fields">
+<div><label for="cname">Tên</label><input id="cname" maxlength="60"></div>
+<div><label for="cphone">Số điện thoại</label><input id="cphone" type="tel"></div>
+<div><label for="cnote">Ghi chú</label><input id="cnote" maxlength="120"></div>
+</div>
+<p id="customer-error" class="error" role="alert"></p>
+<button type="submit">Thêm khách hàng</button>
+</form>
+</details>
+<ul id="customer-list"></ul>
+</section>
+
+</main>
+<script src="index.js"></script>
+</body>
+</html>

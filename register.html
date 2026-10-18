@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tạo tài khoản · Blind Coffee</title>
+<link rel="stylesheet" href="register.css">
+</head>
+<body>
+<main>
+<h1>Blind Coffee</h1>
+<p class="tag">Bắt đầu ngày với một tách đen đá không đường.</p>
+<form id="form" novalidate>
+<label for="name">Họ tên</label>
+<input id="name" autocomplete="name">
+<label for="phone">Số điện thoại</label>
+<input id="phone" type="tel" autocomplete="tel">
+<label for="email">Email</label>
+<input id="email" type="email" autocomplete="email">
+<label for="password">Mật khẩu (ít nhất 4 ký tự)</label>
+<input id="password" type="password" autocomplete="new-password">
+<p id="error" class="error" role="alert"></p>
+<button type="submit">Tạo tài khoản</button>
+</form>
+<p class="alt">Đã có tài khoản? <a href="login.html">Đăng nhập</a></p>
+</main>
+<script src="register.js"></script>
+</body>
+</html>
